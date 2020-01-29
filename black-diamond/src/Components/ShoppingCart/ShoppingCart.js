@@ -7,19 +7,16 @@ class ShoppingCart extends Component {
       return (
         <div className="shopping-cart-product-container" key={index}>
           <img src={element.image} alt="" />
-          <div className="shopping-cart-info">
+          <div className="shopping-cart-info"></div>
             <h2>{element.title}</h2>
             <h2>{"$" + element.price + ".00"}</h2>
-            <div className="shopping-cart-button-container">
-              <button
-                className="shopping-cart-button"
-                onClick={() => this.props.removeFromCart}
-              >
-                Remove From Shopping Cart
-              </button>
+            <div className="shopping-cart-button-container"></div>
+              
+                <div className="shopping-cart-button"></div>
+                <button onClick={() => this.props.removeFromCart(element)}>
+                  Remove From Shopping Cart</button>
             </div>
-          </div>
-        </div>
+          
       );
     });
     return (

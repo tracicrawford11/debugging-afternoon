@@ -4,6 +4,7 @@ import StoreFront from "./Components/StoreFront/StoreFront";
 import ShoppingCart from "./Components/ShoppingCart/ShoppingCart";
 import NavBar from "./Components/NavBar/NavBar";
 
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -12,7 +13,11 @@ class App extends Component {
       cart: [],
       showCart: false
     };
+    this.addToCart = this.addToCart.bind(this)
+    this.removeFromCart = this.removeFromCart.bind(this)
+    this.navigate = this.navigate.bind(this)
   }
+  
   componentDidMount() {
     axios
       .get("https://practiceapi.devmountain.com/products/")
@@ -36,13 +41,21 @@ class App extends Component {
   }
   navigate(location) {
     if (location === "cart") {
-      this.state.showCart = true;
+      this.setState ({
+        showCart: true
+      })
     } else {
-      this.state.showCart = false;
+      this.setState ({
+        showCart: false
+      })
     }
   }
+    
+  handleClick = () => {
+
+    }
   render() {
-    const { products, cart, showCart } = this.state;
+    const { products, showCart, cart } = this.state;
     return (
       <div className="App">
         <NavBar navigate={this.navigate} />
